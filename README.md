@@ -1,0 +1,1 @@
+# cross_self_natural_joins_practices
