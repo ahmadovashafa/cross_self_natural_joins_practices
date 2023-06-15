@@ -1,0 +1,33 @@
+--CROSS,SELF,NATURAL JOINS
+
+/*Task 11: Generate all possible combinations of employees and departments.
+Hint: Use CROSS JOIN on "employees" and "departments".*/
+
+select *from employees natural join departments;
+
+/*Task 12: Display pairs of employees who have the same job_id.
+Hint: This is a SELF JOIN on the "employees" table. Join it to itself on the "job_id" column.*/
+
+
+select e1.employee_id,e1.first_name,e1.last_name,e2.employee_id,e2.first_name,e2.last_name,e1.job_id
+from employees e1
+join employees e2 on e1.job_id=e2.job_id and e1.employee_id!=e2.employee_id;
+
+/*Task 13 Find all employees who have the same manager.
+Hint: Use a SELF JOIN on the "employees" table on "manager_id".*/
+
+select e1.employee_id, e1.first_name,e1.last_name,e1.employee_id,e2.first_name,e2.last_name,e1.manager_id
+from employees e1
+join employees e2  on e1.manager_id=e2.manager_id and e1.employee_id != e2.employee_id;
+
+/*Task14 Show all employees along with their department details without specifying 
+any JOIN condition.
+Hint: Use NATURAL JOIN on "employees" and "departments".*/
+
+select*from employees natural join departments;
+
+/*Task 15: Display all departments along with the locations details without
+specifying any JOIN condition.
+Hint: Use NATURAL JOIN on "departments" and "locations".*/
+
+select*from departments natural join locations;
